@@ -1,0 +1,75 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - food
+  - bot_challenge
+  - give_name:
+      use_entities: true
+  - repeat_name:
+      use_entities: true
+  - available_food
+
+entities:
+  - burger
+  - pizza
+  - biriyani
+  - name
+    
+slots:
+  name:
+    type: text
+  burger:
+    type: text
+  pizza:
+    type: text
+  biriyani:
+    type: text
+  order1:
+    type: text
+  order2:
+    type: text
+    
+responses:
+  utter_greet:
+  - text: "Hey! Welcome to ABC restaurant assistant. \n What is your name?"
+  
+  utter_did_that_help:
+  - text: "Did that help you?"
+  
+  utter_eat:
+  - text: "What would you want to order today?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Thank you for being part of ABC restaurant"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+  
+  utter_more_food_qn:
+  - text: "Do you want to add anything more to your order?"
+  
+  utter_order_placed:
+  - text: "thank you {name}, your order has been placed.The food will be delivered to you shortly."
+    
+  utter_thank_you_name:
+  - text: "Thank you {name} for being a valuable customer of ABC restaurant"
+  
+  utter_available food:
+  - text: "Available food are \n ------------------- \n beef burger \n elk burger \n portobello mushroom burgers \n turkey burger \n veggie burger \n bison burger \n wild salmon burger \n black bean burger \n neapolitan pizza \n greek pizza \n california pizza \n detroit pizza \n malabar biriyani \n thalassery biriyani"
+    
+actions:
+- action_receive_name
+- action_say_name
+- action_receive_order_one
+- action_receive_order_two
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
