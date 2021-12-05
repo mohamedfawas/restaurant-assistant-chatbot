@@ -1,0 +1,34 @@
+version: "2.0"
+
+stories:
+
+- story: order1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: give_name
+  - action: action_receive_name
+  - action: utter_available food
+  - intent: food
+  - action: action_receive_order_one
+  - action: utter_more_food_qn
+  - intent: deny
+  - action: utter_order_placed
+  - intent: goodbye
+  - action: utter_thank_you_name
+
+- story: order2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: give_name
+  - action: action_receive_name
+  - action: utter_available food
+  - intent: food
+  - action: action_receive_order_one
+  - action: utter_more_food_qn
+  - intent: affirm
+  - action: action_receive_order_two
+  - action: utter_order_placed
+  - intent: goodbye
+  - action: utter_thank_you_name
